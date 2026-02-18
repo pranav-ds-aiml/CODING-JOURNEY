@@ -32,7 +32,7 @@ def generate_stock_data(ticker,days=365,start_price=100):
     return df
 
 print("\nGENERATING STOCK DATA FOR POPULAR TECH COMPANIES...")
-tickers=['AAPL,"GOOGl','MSFT','NVDA','TSLA']
+tickers=['AAPL','GOOGl','MSFT','NVDA','TSLA']
 start_prices=[150,140,300,500,200]
 
 

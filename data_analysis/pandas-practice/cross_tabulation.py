@@ -33,3 +33,5 @@ crosstab_3way=pd.crosstab(
     df['Region'],df['Product'],df['Purchased']
 )
 
+print("THREE WAY CROSS TABULATION:")
+print(crosstab_3way)

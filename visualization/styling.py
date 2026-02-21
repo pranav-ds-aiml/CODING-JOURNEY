@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+sales = [45, 52, 48, 61, 58, 67]
+expenses = [35, 38, 42, 45, 43, 48]
+
+plt.style.use('seaborn-v0_8-darkgrid')
+fig, ax = plt.subplots(figsize=(12, 7))
+
+# Plot data
+ax.plot(months, sales, marker='o', linewidth=3, markersize=10, 
+        label='Sales', color='#2E86AB')
+ax.plot(months, expenses, marker='s', linewidth=3, markersize=10, 
+        label='Expenses', color='#A23B72')
+
+ax.fill_between(months, sales, expenses, alpha=0.2, color='green')
+
+# Customize
+ax.set_title('Monthly Sales vs Expenses', fontsize=18, fontweight='bold', pad=20)
+ax.set_xlabel('Month', fontsize=14, fontweight='bold')
+ax.set_ylabel('Amount (₹ in thousands)', fontsize=14, fontweight='bold')
+ax.legend(fontsize=12, loc='upper left', frameon=True, shadow=True)
+ax.grid(True, alpha=0.3, linestyle='--')
+
+for i, (s, e) in enumerate(zip(sales, expenses)):
+    ax.text(i, s + 1, f'{s}K', ha='center', fontsize=10, fontweight='bold')
+    ax.text(i, e - 2, f'{e}K', ha='center', fontsize=10, fontweight='bold')
+
+plt.tight_layout()
+plt.savefig('professional_chart.png', dpi=300, bbox_inches='tight')
+plt.show()
